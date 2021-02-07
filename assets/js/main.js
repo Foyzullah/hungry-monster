@@ -72,9 +72,18 @@ const handleMealDetails = (mealId) => {
   getMealDetails(mealId);
 };
 
+//Clear window
+const getClearWindow = () => {
+  const mealContainer = document.getElementById("meal-container");
+  mealContainer.innerHTML = "";
+  const mealDetailContainer = document.getElementById("meal-details");
+  mealDetailContainer.innerHTML = "";
+};
+
 //Handle search button
 const handleSearchBtn = () => {
   const inputItem = document.getElementById("input-item").value;
+  getClearWindow();
   if (inputItem) {
     getMealData(inputItem);
   } else {
