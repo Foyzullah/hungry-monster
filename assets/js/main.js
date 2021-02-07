@@ -12,15 +12,14 @@ const displaySearchItems = (mealItems) => {
   mealContainer.innerHTML = "";
   if (mealsInfo) {
     mealsInfo.forEach((mealDetails) => {
-      const innerDiv = document.createElement("div");
-      innerDiv.className = "outer-div";
-      innerDiv.innerHTML = `
+      const mealContentDiv = document.createElement("div");
+      mealContentDiv.innerHTML = `
     <div onclick="handleMealDetails('${mealDetails.idMeal}');" id="inner-div">
     <img src='${mealDetails.strMealThumb}'>
     <h3>${mealDetails.strMeal}</h3>
     </div>
     `;
-      mealContainer.appendChild(innerDiv);
+      mealContainer.appendChild(mealContentDiv);
     });
   } else {
     mealContainer.innerHTML = `
@@ -47,7 +46,7 @@ const displayMealDetails = (mealItem) => {
     detailInnerDiv.innerHTML = `
     <div class='text-center' >
     <img src='${mealDetail.strMealThumb}'>
-    <h2 class='margin-0'> ${mealDetail.strMeal} </h2>
+    <h2> ${mealDetail.strMeal} </h2>
     </div>
     <div>
     <h3>Ingredients</h3>
